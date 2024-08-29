@@ -27,8 +27,8 @@
 
                     <!-- Navigation Start -->
                     <ul class="w-full mt-auto mb-auto pl-8 flex flex-col items-center justify-center space-y-0  text-onPrimary dark:text-onPrimaryDark">
-                        <li class="group w-full h-22 flex flex-col justify-center">
-                            <div class="w-full h-5 flex flex-col  group-hover:bg-content dark:group-hover:bg-contentDark transition-all duration-300 ease-in-out">
+                        <li class="group w-full h-22 flex flex-col justify-center" onclick="loadContent('pages/about.html')"">
+                            <div class="w-full h-5 flex flex-col  group-hover:bg-content dark:group-hover:bg-contentDark transition-all duration-300 ease-in-out ">
                                 <div class="w-full flex-1 h-full bg-primary dark:bg-primaryDark group-hover:rounded-br-full transition-all duration-300 ease-in-out"></div>
                             </div>
                             <div class="w-full h-12 flex pl-6 gap-6 items-center rounded-l-full group-hover:bg-content dark:group-hover:bg-contentDark group-hover:cursor-pointer transition-all duration-300 ease-in-out">
@@ -41,7 +41,7 @@
                                 <div class="w-full flex-1 bg-primary group-hover:rounded-tr-full dark:bg-primaryDark transition-all duration-300 ease-in-out"></div>
                             </div>
                         </li>
-                        <li class="group w-full h-22 flex flex-col justify-center">
+                        <li class="group w-full h-22 flex flex-col justify-center" onclick="loadContent('pages/project.html')">
                             <div class="w-full h-5 flex flex-col  group-hover:bg-content dark:group-hover:bg-contentDark transition-all duration-300 ease-in-out">
                                 <div class="w-full flex-1 h-full bg-primary dark:bg-primaryDark group-hover:rounded-br-full transition-all duration-300 ease-in-out"></div>
                             </div>
@@ -55,7 +55,7 @@
                                 <div class="w-full flex-1 bg-primary group-hover:rounded-tr-full dark:bg-primaryDark transition-all duration-300 ease-in-out"></div>
                             </div>
                         </li>
-                        <li class="group w-full h-22 flex flex-col justify-center">
+                        <li class="group w-full h-22 flex flex-col justify-center" onclick="loadContent('pages/blog.html')">
                             <div class="w-full h-5 flex flex-col  group-hover:bg-content dark:group-hover:bg-contentDark transition-all duration-300 ease-in-out">
                                 <div class="w-full flex-1 h-full bg-primary dark:bg-primaryDark group-hover:rounded-br-full transition-all duration-300 ease-in-out"></div>
                             </div>
@@ -69,7 +69,7 @@
                                 <div class="w-full flex-1 bg-primary group-hover:rounded-tr-full dark:bg-primaryDark transition-all duration-300 ease-in-out"></div>
                             </div>
                         </li>
-                        <li class="group w-full h-22 flex flex-col justify-center">
+                        <li class="group w-full h-22 flex flex-col justify-center" onclick="loadContent('pages/contact.html')">
                             <div class="w-full h-5 flex flex-col  group-hover:bg-content dark:group-hover:bg-contentDark transition-all duration-300 ease-in-out">
                                 <div class="w-full flex-1 h-full bg-primary dark:bg-primaryDark group-hover:rounded-br-full transition-all duration-300 ease-in-out"></div>
                             </div>
@@ -77,7 +77,7 @@
                                 <div class="w-6 h-6 flex justify-center items-center">
                                     <i class="fi fi-rr-phone-guide text-2xl group-hover:text-onPrimaryDark transition-all duration-300 ease-in-out"></i>
                                 </div>
-                                <span class="text-sm font-medium group-hover:text-onPrimaryDark group-hover:cursor-pointer transition-all duration-300 ease-in-out">About</span>
+                                <span class="text-sm font-medium group-hover:text-onPrimaryDark group-hover:cursor-pointer transition-all duration-300 ease-in-out">Contact</span>
                             </div>
                             <div class="w-full h-5 flex flex-col group-hover:bg-content dark:group-hover:bg-contentDark transition-all duration-300 ease-in-out">
                                 <div class="w-full flex-1 bg-primary group-hover:rounded-tr-full dark:bg-primaryDark transition-all duration-300 ease-in-out"></div>
@@ -94,19 +94,19 @@
                     <!-- Content Wrapper Start -->
                     <div class="w-full h-full flex flex-col bg-content dark:bg-contentDark rounded-2xl px-4 pb-3 divide-y-2 divide-primary dark:divide-primaryDark">
                         <!-- Navbar Start -->
-                        <nav class="group w-full h-16 flex items-center">
+                        <nav class="w-full h-16 flex items-center">
                             <!-- Back Button Start -->
-                            <div class=" w-10 h-10 flex items-center justify-center group-hover:bg-primary group-hover:rounded-full transition-all duration-300 ease-in-out">
-                                <div class="h-6 w-6">
-                                    <i class="fi fi-rr-angle-small-left text-2xl leading-none text-primary group-hover:text-primaryDark transition-all duration-300 ease-in-out"></i>
+                            <div class="group w-10 h-10 flex items-center justify-center hover:bg-primary hover:rounded-full transition-all duration-300 ease-in-out">
+                                <div class="h-6 w-6 text-primary group-hover:text-primaryDark transition duration-300 ease-in-out">
+                                    <i class="fi fi-rr-angle-small-left text-2xl leading-none"></i>
                                 </div>
                             </div>
                             <!-- Back Button End -->
 
                             <!-- Navigation Start -->
                             <div class="flex mx-auto items-center justify-center space-x-12 text-primary">
-                                <button>Certificate</button>
-                                <button>Insight</button>
+                                <button class="tracking-widest" onclick="loadContent('pages/certive.html')">CERTIFICATE</button>
+                                <button class="tracking-widest" onclick="loadContent('pages/insight.html')">INSIGHT</button>
                             </div>
                             <!-- Navigation End -->
 
@@ -129,7 +129,7 @@
                         <!-- Navbar End -->
 
                         <!-- Main Content Start -->
-                        <div>
+                        <div id="content-container">
                             
                         </div>
                         <!-- Main Content End -->
@@ -150,17 +150,38 @@
         });
     
         const setTheme = (theme) => {
+            const elements = document.querySelectorAll('.transition-all');
+        
             if (theme === 'light') {
                 localStorage.theme = 'light';
                 document.documentElement.classList.remove('dark');
                 themeIcon.src = 'img/sun.png';
+        
+                elements.forEach(el => {
+                    el.classList.remove('dark:duration-0');
+                    el.classList.add('duration-0');
+                });
+        
+                setTimeout(() => {
+                    elements.forEach(el => {
+                        el.classList.remove('duration-0');
+                        el.classList.add('duration-300');
+                    });
+                }, 0); 
+        
             } else if (theme === 'dark') {
                 localStorage.theme = 'dark';
                 document.documentElement.classList.add('dark');
                 themeIcon.src = 'img/moon.png';
+        
+                elements.forEach(el => {
+                    el.classList.remove('duration-300');
+                    el.classList.add('dark:duration-0');
+                });
             }
             themeDropdown.classList.add('hidden');
         };
+        
 
     
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -170,6 +191,18 @@
             document.documentElement.classList.remove('dark');
             themeIcon.src = 'img/sun.png';
         }
+
+        function loadContent(page) {
+            fetch(page)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content-container').innerHTML = data;
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadContent('pages/about.html');
+        });
     </script>
 </body>
 </html>
